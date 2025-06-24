@@ -2,12 +2,14 @@
   "name": "petite-vue-directives",
   "version": "0.1.0",
   "description": "A collection of custom directives for petite-vue.",
+  "type": "module",
   "main": "dist/petite-vue-directives.iife.js",
   "module": "dist/petite-vue-directives.es.js",
   "exports": {
     ".": {
       "import": "./dist/petite-vue-directives.es.js",
-      "require": "./dist/petite-vue-directives.iife.js"
+      "require": "./dist/petite-vue-directives.iife.js",
+      "default": "./dist/petite-vue-directives.es.js"
     }
   },
   "files": [
