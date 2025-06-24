@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-resize</title>
+  <style>
+    html,body{height:100%;margin:0;}
+    @keyframes motion {
+      from { width: 200px; height: 100px; }
+      to   { width: 100px; height: 50px; }
+    }
+    .play-motion { animation: 3s motion alternate infinite; }
+  </style>
+  <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+</head>
+
+<body>
+  <div id="app" v-resize.document="domSize=[$width,$height]" class="flex flex-col justify-center items-center h-full">
+    <div class="play-motion flex text-center border border-black" v-resize="elemSize=[$width,$height]">
+      <span class="m-auto">Motion</span>
+    </div>
+    <ul class="font-mono mt-4">
+      <li>document size: {{ domSize }}</li>
+      <li>element size: {{ elemSize }}</li>
+    </ul>
+  </div>
+
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/petite-vue?module'
+    import vResize from './index.js'
+
+    const app = createApp({
+      _domSize:  [0, 0],
+      _elemSize: [0, 0],
+      set domSize(val) { this._domSize = val },
+      get domSize() { return this._domSize },
+      set elemSize(val) { this._elemSize = val },
+      get elemSize() { return this._elemSize.map(Math.round) },
+    })
+    app.directive('resize', vResize)
+    app.mount('#app')
+  </script>
+</body>
+</html>
