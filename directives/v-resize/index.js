@@ -6,8 +6,10 @@ export default (ctx) => {
     entries.forEach(entry => {
       try {
         ctx.get(`(()=>{
-          const $width = ${entry.contentRect.width};
-          const $height = ${entry.contentRect.height};
+          const $detail = {
+            width:  ${entry.contentRect.width},
+            height: ${entry.contentRect.height},
+          };
           ${ctx.exp}
         })()`)
       } catch (e) {

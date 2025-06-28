@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-resize</title>
+  <style>
+    html,body{height:100%;margin:0;}
+    .ruler { background-image: url(https://ax.minicg.com/images/ruler.svg); background-repeat: repeat-y; }
+  </style>
+  <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+</head>
+
+<body class="bg-yellow-300">
+  <div id="app" v-scope="{ shown1: false, shown2: false }" class="ruler">
+    <div class=" w-full h-[120vh]"></div>
+
+    <div :class="[shown1?'bg-green-500':'bg-red-500', 'duration-500 py-40 px-4 text-6xl text-white font-mono opacity-90']"
+          v-effect="console.log(shown1)"
+          v-intersect.margin_-10px="shown1=$detail.intersect">
+      <span>I am in the viewport.</span>
+    </div>
+
+    <div class="py-32"></div>
+
+    <!-- <div :class="[shown2?'bg-blue-500':'bg-black', 'duration-500 py-40 px-4 text-6xl text-white font-mono opacity-90']"
+         v-intersect.half="shown2=$intersect"
+         @vue:mounted="">
+    </div> -->
+
+    <div class=" w-full h-[120vh]"></div>
+  </div>
+
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/petite-vue?module'
+    import vIntersect from './index.js'
+
+    const app = createApp()
+    app.directive('intersect', vIntersect)
+    app.mount()
+  </script>
+</body>
+</html>

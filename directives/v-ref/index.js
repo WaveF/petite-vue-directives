@@ -1,6 +1,9 @@
 export default (ctx) => {
   try {
-    ctx.get(`$refs["${ctx.exp}"]=$el`)
+    ctx.get(`
+      const $detail={el:$el};
+      $refs["${ctx.exp}"]=$el
+    `)
   } catch (e) {
     console.warn('expression error:', e)
   }
