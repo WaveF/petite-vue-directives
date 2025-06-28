@@ -21,7 +21,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "git:push": "git push gitee master && git push github master:main"
+    "git:info": "git remote -v",
+    "git:push": "git push origin master && git push github master:main"
   },
   "keywords": [
     "petite-vue",
