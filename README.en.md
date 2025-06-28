@@ -41,8 +41,11 @@ Watch for element size changes:
 <!-- Watch element size -->
 <div v-resize="size=[$detail.width,$detail.height]">Current size: {{size}}</div>
 
+<!-- Watch specified element by id -->
+<div v-resize:elemId="size=[$detail.width,$detail.height]">Element size: {{size}}</div>
+
 <!-- Watch document size -->
-<div v-resize.document="docSize=[$detail.width,$detail.height]">Document size: {{docSize}}</div>
+<div v-resize:document="docSize=[$detail.width,$detail.height]">Document size: {{docSize}}</div>
 ```
 
 ### v-intersect
@@ -97,9 +100,11 @@ Watch for element intersection with viewport:
   - `margin_10px_20px_30px`: 10px on top, 20px on left/right, 30px on bottom
   - `margin_10px_20px_30px_40px`: 10px, 20px, 30px, 40px on top, right, bottom, left respectively
 
-### v-resize Modifiers
+### v-resize Arguments
 
-- **document**: Watch document size changes instead of element size
+- **(empty)**：watch self size changes
+- **elementId**: Watch specified element by id
+- **document**: Watch document size changes
 
 ## Data Object
 

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div id="app" v-resize.document="domSize=[$detail.width, $detail.height]" class="flex flex-col justify-center items-center h-full">
+  <div id="app" v-resize:document1="domSize=[$detail.width, $detail.height]" class="flex flex-col justify-center items-center h-full">
     <div class="play-motion flex text-center border border-black" v-resize="elemSize=[$detail.width, $detail.height]">
       <span class="m-auto">Motion</span>
     </div>

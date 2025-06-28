@@ -38,8 +38,11 @@ app.mount()
 监听元素尺寸变化：
 
 ```html
-<!-- 监听元素尺寸 -->
+<!-- 监听元素自身尺寸 -->
 <div v-resize="size=[$detail.width, $detail.height]">当前尺寸: {{size}}</div>
+
+<!-- 监听指定id的元素尺寸 -->
+<div v-resize:elemId="size=[$detail.width, $detail.height]">元素尺寸: {{size}}</div>
 
 <!-- 监听文档尺寸 -->
 <div v-resize.document="docSize=[$detail.width, $detail.height]">文档尺寸: {{docSize}}</div>
@@ -92,9 +95,11 @@ app.mount()
   - `margin_10px_20px_30px`: 上10px，左右20px，下30px
   - `margin_10px_20px_30px_40px`: 上右下左分别为10px、20px、30px、40px
 
-### v-resize 修饰符
+### v-resize 参数
 
-- **document**: 监听文档尺寸变化而不是元素尺寸
+- **无参数**: 监听元素自身尺寸变化
+- **元素id**: 监听指定id的元素尺寸变化
+- **document**: 监听文档尺寸变化
 
 ## 数据对象
 

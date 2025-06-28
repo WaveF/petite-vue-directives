@@ -1,6 +1,6 @@
 export default (ctx) => {
-  const modifiers = ctx.modifiers || {};
-  const isDocumentResize = modifiers.document;
+  const target = ctx.arg;
+  console.log(ctx.arg)
 
   const observerCallback = (entries) => {
     entries.forEach(entry => {
@@ -20,9 +20,21 @@ export default (ctx) => {
 
   const resizeObserver = new ResizeObserver(observerCallback);
 
-  if (isDocumentResize) {
+  if (target === 'document') {
     resizeObserver.observe(document.documentElement);
-  } else {
+  }
+  else if (target === 'window') {
+    resizeObserver.observe(document.documentElement);
+  }
+  else if (typeof target === 'string' && target !== '') {
+    const targetElement = document.querySelector(`#${target}`);
+    if (targetElement) {
+      resizeObserver.observe(targetElement);
+    } else {
+      console.error(`v-resize: Element with id "${target}" not found`);
+    }
+  }
+  else {
     resizeObserver.observe(ctx.el);
   }
 
