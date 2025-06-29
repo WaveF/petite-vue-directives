@@ -1,6 +1,6 @@
 # Petite-Vue Directives
 
-[English](./README.en.md) | 简体中文
+English | [简体中文](./README.cn.md)
 
 一个为 petite-vue 设计的自定义指令集合。
 

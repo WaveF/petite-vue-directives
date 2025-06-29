@@ -1,6 +1,6 @@
 # Petite-Vue Directives
 
-[简体中文](./README.md) | English
+[English](./README.md) | 简体中文
 
 A collection of custom directives designed specifically for [petite-vue](https://github.com/vuejs/petite-vue).
 

@@ -44,6 +44,6 @@ export function createDetailExpression(detailProps, expression) {
     .join(',');
     
   const code = `(()=>{const $detail={${detailStr}};${expression}})()`;
-  
+
   return code;
 }

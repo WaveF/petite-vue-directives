@@ -10,7 +10,6 @@ export default (ctx) => {
           width: entry.contentRect.width,
           height: entry.contentRect.height
         }, ctx.exp);
-        console.log({code});
         ctx.get(code)
       } catch (e) {
         console.warn('expression error:', e)

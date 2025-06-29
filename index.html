@@ -9,7 +9,7 @@
 </head>
 
 <body class="flex p-8">
-  <div id="app" @vue:mounted="mounted" v-resize:document="size=$detail">
+  <div id="app" @vue:mounted="mounted">
     <h1 class="font-bold text-3xl mb-4 text-green-500">Petite-Vue Directives Demo</h1>
     <ul v-ref="demo-list" class="font-mono list-disc pl-4">
       <template v-for="item in demos">
@@ -17,18 +17,19 @@
           <a :href="item.url" class="hover:underline">{{ item.name }}</a>
         </li>
       </template>
+      <li class="py-1">
+        <a href="./test/index.html" class="hover:underline text-green-500">test only</a>
+      </li>
     </ul>
-    <p>{{size}}</p>
   </div>
 
   <script type="module">
     import { createApp } from './petite-vue.es.js'
-    import * as directives from './dist/petite-vue-directives.es.js?v=1'
-    const { vRef, vResize } = directives
+    import * as directives from './dist/petite-vue-directives.es.js'
+    const { vRef } = directives
 
     createApp({
       demos: [],
-      size: [],
       async mounted() {
         const ul = this.$refs['demo-list']
         const demos = import.meta.glob('./directives/**/demo.html', { as: 'url' })
@@ -38,10 +39,8 @@
           if (name === 'template') continue
           this.demos.push({ name, url })
         }
-        console.log(this.$refs)
       }
     })
-    .directive('resize', vResize)
     .directive('ref', vRef)
     .mount('#app')
   </script>
