@@ -22,7 +22,7 @@
 
   <script type="module">
     import { createApp } from 'https://unpkg.com/petite-vue?module'
-    import * as directives from './directives/index.js'
+    import * as directives from './dist/petite-vue-directives.es.js'
     const { vRef } = directives
 
     createApp({
@@ -36,6 +36,7 @@
           if (name === 'template') continue
           this.demos.push({ name, url })
         }
+        console.log(this.$refs)
       }
     })
     .directive('ref', vRef)

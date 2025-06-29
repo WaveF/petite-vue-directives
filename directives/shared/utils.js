@@ -35,3 +35,20 @@ export function parseModifiersAsArray(modifiers = {}) {
   }
   return result;
 }
+
+// 创建统一的表达式生成器
+export function createDetailExpression(detailProps, expression, options = {}) {
+  const { debug = false } = options;
+  
+  const detailStr = Object.entries(detailProps)
+    .map(([key, value]) => `${key}:${value}`)
+    .join(',');
+    
+  const code = `(()=>{const $detail={${detailStr}};${expression}})()`;
+  
+  if (debug) {
+    console.log('Generated code:', code);
+  }
+  
+  return code;
+}

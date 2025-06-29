@@ -1,4 +1,4 @@
-import { parseModifiersAsArray } from '../shared/utils.js'
+import { parseModifiersAsArray, createDetailExpression } from '../shared/utils.js'
 
 export default (ctx) => {
   const mods = parseModifiersAsArray(ctx.modifiers)
@@ -10,12 +10,10 @@ export default (ctx) => {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      ctx.get(`(()=>{
-        const $detail = {
-          intersect: ${entry.isIntersecting}
-        };
-        ${ctx.exp};
-      })()`)
+      const code = createDetailExpression({
+        intersect: entry.isIntersecting
+      }, ctx.exp);
+      ctx.get(code);
     });
   }, {
     threshold,

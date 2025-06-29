@@ -1,3 +1,5 @@
+import { createDetailExpression } from '../shared/utils.js'
+
 export default (ctx) => {
   const target = ctx.arg;
   console.log(ctx.arg)
@@ -5,13 +7,11 @@ export default (ctx) => {
   const observerCallback = (entries) => {
     entries.forEach(entry => {
       try {
-        ctx.get(`(()=>{
-          const $detail = {
-            width:  ${entry.contentRect.width},
-            height: ${entry.contentRect.height},
-          };
-          ${ctx.exp}
-        })()`)
+        const code = createDetailExpression({
+          width: entry.contentRect.width,
+          height: entry.contentRect.height
+        }, ctx.exp);
+        ctx.get(code)
       } catch (e) {
         console.warn('expression error:', e)
       }
