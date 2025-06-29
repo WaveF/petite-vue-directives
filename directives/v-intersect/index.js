@@ -2,11 +2,9 @@ import { parseModifiersAsArray, createDetailExpression } from '../shared/utils.j
 
 export default (ctx) => {
   const mods = parseModifiersAsArray(ctx.modifiers)
-  console.log('mods', mods)
   
   const threshold = getThreshold(mods) || 0
   const rootMargin = getRootMargin(mods)
-  console.log({threshold, rootMargin})
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
