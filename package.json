@@ -1,6 +1,6 @@
 {
   "name": "petite-vue-directives",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A collection of custom directives for petite-vue.",
   "type": "module",
   "main": "dist/petite-vue-directives.iife.js",
