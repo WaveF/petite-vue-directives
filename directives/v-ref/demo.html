@@ -14,16 +14,16 @@
   </div>
 
   <script type="module">
-    import { createApp } from 'https://unpkg.com/petite-vue?module'
-    import vRef from './index.js'
+    import { createApp } from 'https://unpkg.com/petite-vue?module';
+    import vRef from './index.js';
 
     const app = createApp({
       mounted() {
-        console.log( this.$refs )
+        console.log( this.$refs );
       }
     })
     app.directive('ref', vRef)
-    app.mount('#app')
+    app.mount('#app');
   </script>
 </body>
 </html>

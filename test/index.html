@@ -26,25 +26,25 @@
   </div>
 
   <script type="module">
-    import { createApp } from '../petite-vue.es.js'
-    import * as directives from '../dist/petite-vue-directives.es.js?v=10'
-    const { vRef, vResize, vIntersect } = directives
+    import { createApp } from '../petite-vue.es.js';
+    import * as directives from '../dist/petite-vue-directives.es.js?v=10';
+    const { vRef, vResize, vIntersect } = directives;
 
     createApp({
       inView: true,
       domSize: [0, 0],
       elemSize: [0, 0],
       trace(detail) {
-        console.log('trace',detail)
+        console.log('trace',detail);
       },
       async mounted() {
-        console.log(this.$refs)
+        console.log(this.$refs);
       }
     })
     .directive('intersect', vIntersect)
     .directive('resize', vResize)
     .directive('ref', vRef)
-    .mount('#app')
+    .mount('#app');
   </script>
 </body>
 </html>

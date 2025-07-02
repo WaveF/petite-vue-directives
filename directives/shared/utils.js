@@ -24,12 +24,12 @@ export function parseModifiersAsArray(modifiers = {}) {
       const [mainKey, ...values] = key.split('_');
       result.push({
         key: mainKey,
-        value: values.length === 1 ? values[0] : values
+        value: values.length === 1 ? values[0] : values,
       });
     } else {
       result.push({
         key,
-        value: undefined
+        value: undefined,
       });
     }
   }
@@ -38,11 +38,10 @@ export function parseModifiersAsArray(modifiers = {}) {
 
 // 创建统一的表达式生成器
 export function createDetailExpression(detailProps, expression) {
-  
   const detailStr = Object.entries(detailProps)
     .map(([key, value]) => `${key}:${value}`)
     .join(',');
-    
+
   const code = `(()=>{const $detail={${detailStr}};${expression}})()`;
 
   return code;

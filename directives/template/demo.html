@@ -14,14 +14,14 @@
   </div>
 
   <script type="module">
-    import { createApp } from 'https://unpkg.com/petite-vue?module'
-    import vName from './index.js'
+    import { createApp } from 'https://unpkg.com/petite-vue?module';
+    import vName from './index.js';
 
     const app = createApp({
       mounted() {}
     })
     app.directive('name', vName)
-    app.mount('#app')
+    app.mount('#app');
   </script>
 </body>
 </html>

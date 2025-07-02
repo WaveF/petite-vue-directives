@@ -27,8 +27,8 @@
   </div>
 
   <script type="module">
-    import { createApp } from 'https://unpkg.com/petite-vue?module'
-    import vResize from './index.js'
+    import { createApp } from 'https://unpkg.com/petite-vue?module';
+    import vResize from './index.js';
 
     const app = createApp({
       _domSize:  [0, 0],
@@ -39,7 +39,7 @@
       get elemSize() { return this._elemSize.map(Math.round) },
     })
     app.directive('resize', vResize)
-    app.mount('#app')
+    app.mount('#app');
   </script>
 </body>
 </html>
