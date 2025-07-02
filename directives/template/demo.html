@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@@</title>
+  <title>vName</title>
   <style>html,body{height:100%;margin:0;}</style>
-  <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+  <script src="../../tailwindcss-jit-cdn-ex.min.js"></script>
 </head>
 
 <body class="p-4">
-  <div id="app" @vue:mounted="mounted">
-    <span v-ref="mySpan">mySpan</span>
-  </div>
+  <div id="app" @vue:mounted="mounted"></div>
 
   <script type="module">
-    import { createApp } from 'https://unpkg.com/petite-vue?module';
+    import { createApp } from '../../petite-vue.es.js';
     import vName from './index.js';
 
     const app = createApp({
