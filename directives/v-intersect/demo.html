@@ -17,7 +17,7 @@
 
     <div :class="[shown1?'bg-green-500':'bg-red-500', 'duration-500 py-40 px-4 text-6xl text-white font-mono opacity-90']"
           v-effect="console.log(shown1)"
-          v-intersect.margin_-10px="shown1=$detail.intersect">
+          v-intersect.margin_-10px="shown1=$v.intersect">
       <span>I am in the viewport.</span>
     </div>
 

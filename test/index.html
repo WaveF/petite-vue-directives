@@ -18,16 +18,16 @@
 <body>
   <div id="app" class="font-mono"
     @vue:mounted="mounted"
-    v-resize:document="domSize=[$detail.width, $detail.height]">
+    v-resize:document="domSize=[$v.width, $v.height]">
     <div class="fixed bg-white">{{inView}}</div>
-    <div class="play-animate translate-x-12 border-red-500 border p-2" v-resize="elemSize=[Math.round($detail.width), Math.round($detail.height)]">{{elemSize}}</div>
-    <div v-ref="info" v-intersect="inView=$detail.intersect;trace($detail)" class="w-[fit-content] p-4 mt-2 translate-x-12 border">{{domSize}}</div>
+    <div class="play-animate translate-x-12 border-red-500 border p-2" v-resize="elemSize=[Math.round($v.width), Math.round($v.height)]">{{elemSize}}</div>
+    <div v-ref="info" v-intersect="inView=$v.intersect;trace($v)" class="w-[fit-content] p-4 mt-2 translate-x-12 border">{{domSize}}</div>
     <div class="w-[fit-content] p-4 h-[102dvh] bg-gray-200"></div>
   </div>
 
   <script type="module">
     import { createApp } from '../petite-vue.es.js';
-    import * as directives from '../dist/petite-vue-directives.es.js?v=10';
+    import * as directives from '../dist/petite-vue-directives.es.js?v=0.4.0';
     const { vRef, vResize, vIntersect } = directives;
 
     createApp({

@@ -42,7 +42,7 @@ export function createDetailExpression(detailProps, expression) {
     .map(([key, value]) => `${key}:${value}`)
     .join(',');
 
-  const code = `(()=>{const $detail={${detailStr}};${expression}})()`;
+  const code = `(()=>{const $v={${detailStr}};${expression}})()`;
 
   return code;
 }

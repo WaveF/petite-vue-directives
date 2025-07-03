@@ -13,14 +13,14 @@ npm install petite-vue-directives
 ## Usage
 
 ```js
-import { createApp } from 'petite-vue'
-import { vRef, vResize, vIntersect } from 'petite-vue-directives'
+import { createApp } from 'petite-vue';
+import { vRef, vResize, vIntersect } from 'petite-vue-directives';
 
-const app = createApp()
-app.directive('ref', vRef)
-app.directive('resize', vResize)
-app.directive('intersect', vIntersect)
-app.mount()
+const app = createApp();
+app.directive('ref', vRef);
+app.directive('resize', vResize);
+app.directive('intersect', vIntersect);
+app.mount();
 ```
 
 ## Available Directives
@@ -39,13 +39,15 @@ Watch for element size changes:
 
 ```html
 <!-- Watch element size -->
-<div v-resize="size=[$detail.width,$detail.height]">Current size: {{size}}</div>
+<div v-resize="size=[$v.width,$v.height]">Current size: {{size}}</div>
 
 <!-- Watch specified element by id -->
-<div v-resize:elemId="size=[$detail.width,$detail.height]">Element size: {{size}}</div>
+<div v-resize:elemId="size=[$v.width,$v.height]">Element size: {{size}}</div>
 
 <!-- Watch document size -->
-<div v-resize:document="docSize=[$detail.width,$detail.height]">Document size: {{docSize}}</div>
+<div v-resize:document="docSize=[$v.width,$v.height]">
+  Document size: {{docSize}}
+</div>
 ```
 
 ### v-intersect
@@ -54,35 +56,29 @@ Watch for element intersection with viewport:
 
 ```html
 <!-- Basic usage -->
-<div v-intersect="shown=$detail.intersect">
+<div v-intersect="shown=$v.intersect">
   Element is {{shown ? 'visible' : 'hidden'}}
 </div>
 
 <!-- Set threshold -->
-<div v-intersect.threshold_50="shown=$detail.intersect">
+<div v-intersect.threshold_50="shown=$v.intersect">
   Trigger when 50% visible
 </div>
 
 <!-- Use semantic modifiers -->
-<div v-intersect.half="shown=$detail.intersect">
-  Trigger when 50% visible
-</div>
+<div v-intersect.half="shown=$v.intersect">Trigger when 50% visible</div>
 
-<div v-intersect.full="shown=$detail.intersect">
-  Trigger when fully visible
-</div>
+<div v-intersect.full="shown=$v.intersect">Trigger when fully visible</div>
 
 <!-- Set margin -->
-<div v-intersect.margin_-10px="shown=$detail.intersect">
-  Trigger 10px early
-</div>
+<div v-intersect.margin_-10px="shown=$v.intersect">Trigger 10px early</div>
 
-<div v-intersect.margin_-10px_20px="shown=$detail.intersect">
+<div v-intersect.margin_-10px_20px="shown=$v.intersect">
   Trigger 10px early on top/bottom, 20px early on left/right
 </div>
 
 <!-- Combined usage -->
-<div v-intersect.threshold_30.margin_-50px="shown=$detail.intersect">
+<div v-intersect.threshold_30.margin_-50px="shown=$v.intersect">
   Trigger when 30% visible and 50px early
 </div>
 ```
@@ -108,10 +104,10 @@ Watch for element intersection with viewport:
 
 ## Data Object
 
-All directives pass detailed data through the `$detail` object:
+All directives pass detailed data through the `$v` object:
 
-- **v-intersect**: `$detail.intersect` - Whether the element intersects with viewport
-- **v-resize**: `$detail.width`, `$detail.height` - Element width and height
+- **v-intersect**: `$v.intersect` - Whether the element intersects with viewport
+- **v-resize**: `$v.width`, `$v.height` - Element width and height
 
 ## License
 
